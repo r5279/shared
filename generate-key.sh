@@ -1,13 +1,16 @@
 #!/bin/bash
 set -euo pipefail
 
-if [ $# -ne 1 ]; then
-  echo "Usage: $0 <ssh key filename>"
+echo
+echo "Recommended filename format: ServerName-ComputerToUse-YYYYMMDD"
+read -p "Enter ssh key filename: " FILENAME
+
+if [ -z "$FILENAME" ]; then
+  echo "No filename provided. Exiting."
   exit 1
 fi
 
 MOUNT_POINT="/mnt/usb"
-FILENAME="$1"
 
 # FINDING USB DISK
 DISK=$(lsblk -dno NAME,TRAN | awk '$2=="usb" {print $1; exit}')
