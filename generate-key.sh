@@ -49,7 +49,7 @@ if [ -f ~/.ssh/usb_to_wsl.exe ]; then
   echo 'The USB drive has been mounted at /mnt/usb.'
   sudo mount $PART $MOUNT_POINT
   echo 'Copying usb_to_wsl.exe to USB drive...'
-  sudo cp ~/.ssh/usb_to_wsl.exe $MOUNT_POINT/
+  sudo cp ~/shared/usb_to_wsl.exe $MOUNT_POINT/
   sudo umount $MOUNT_POINT
   echo 'Copy completed. The USB drive has been safely umounted.'
   echo
