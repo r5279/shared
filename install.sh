@@ -63,6 +63,45 @@ echo "Target: $TARGET"
 
 ln -sf "$TARGET" "$LINK"
 
+
+# ---------------------------------------------------------------------------
+# generate-key 실행용 래퍼 스크립트 생성
+# ---------------------------------------------------------------------------
+#
+# 목적
+# ----
+# ~/shared/generate-key.sh 스크립트를 쉽게 실행하기 위해
+# 홈 디렉터리에 간단한 실행용 스크립트를 생성한다.
+#
+# 생성되는 파일
+# --------------
+#
+# ~/.s.generate-key.sh
+#
+# 파일 내용
+# ---------
+#
+# bash ~/shared/generate-key.sh
+#
+# 즉, 아래처럼 간단히 실행할 수 있다.
+#
+# ~/.s.generate-key.sh
+#
+# 구조
+# ----
+#
+# ~/.s.generate-key.sh  ->  ~/shared/generate-key.sh 실행
+#
+# ---------------------------------------------------------------------------
+
+FILE="$HOME/.s.generate-key.sh"
+
+cat << 'EOF' > "$FILE"
+bash ~/shared/generate-key.sh
+EOF
+
+chmod +x "$FILE"
+
 echo "Done."
 echo "Result:"
 ls -l "$LINK"
