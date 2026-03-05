@@ -76,7 +76,7 @@ ln -sf "$TARGET" "$LINK"
 # 생성되는 파일
 # --------------
 #
-# ~/.s.generate-key.sh
+# ~/.script-generate-key.sh
 #
 # 파일 내용
 # ---------
@@ -84,17 +84,13 @@ ln -sf "$TARGET" "$LINK"
 # bash ~/shared/generate-key.sh
 #
 # 즉, 아래처럼 간단히 실행할 수 있다.
-#
-# ~/.s.generate-key.sh
-#
-# 구조
-# ----
-#
-# ~/.s.generate-key.sh  ->  ~/shared/generate-key.sh 실행
+# (~ 디렉토리에서, bash .sc 까지 입력하고 TAB 키)
+# 
+# bash .script-generate-key.sh
 #
 # ---------------------------------------------------------------------------
 
-FILE="$HOME/.s.generate-key.sh"
+FILE="$HOME/.script-generate-key.sh"
 
 cat << 'EOF' > "$FILE"
 bash ~/shared/generate-key.sh
