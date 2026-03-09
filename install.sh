@@ -57,6 +57,7 @@
 TARGET="$HOME/shared/tmux.conf"
 LINK="$HOME/.tmux.conf"
 
+echo
 echo "Creating tmux config symlink..."
 echo "Link:   $LINK"
 echo "Target: $TARGET"
@@ -65,39 +66,35 @@ ln -sf "$TARGET" "$LINK"
 
 
 # ---------------------------------------------------------------------------
-# generate-key 실행용 래퍼 스크립트 생성
+# generate-key.sh, mount-usb.sh 실행용 심볼릭 링크 생성
 # ---------------------------------------------------------------------------
 #
 # 목적
 # ----
-# ~/shared/generate-key.sh 스크립트를 쉽게 실행하기 위해
-# 홈 디렉터리에 간단한 실행용 스크립트를 생성한다.
+# ~/shared/generate-key.sh, ~/shared/mount-usb.sh 스크립트를 쉽게 실행하기 위해
+# 홈 디렉터리에 숨김파일로 심볼릭링크를 생성한다.
 #
 # 생성되는 파일
 # --------------
 #
-# ~/.script-generate-key.sh
+# ~/.generate-key.ln
+# ~/.mount-usb.ln
 #
-# 파일 내용
+# 사용 방법
 # ---------
 #
-# bash ~/shared/generate-key.sh
+# bash .generate-key.ln
+# bash .mount-usb.ln
 #
-# 즉, 아래처럼 간단히 실행할 수 있다.
-# (~ 디렉토리에서, bash .sc 까지 입력하고 TAB 키)
-# 
-# bash .script-generate-key.sh
-#
+# 아래처럼 간단히 실행할 수 있다.
+# (~ 디렉토리에서, bash .g 또는 .m 까지 입력하고 TAB 키)
 # ---------------------------------------------------------------------------
 
-FILE="$HOME/.script-generate-key.sh"
+echo
+echo "Creating symbolic links for generate-key and mount-usb scripts in the home directory."
 
-cat << 'EOF' > "$FILE"
-bash ~/shared/generate-key.sh
-EOF
+ln -s ~/shared/generate-key.sh ~/.generate-key.ln
 
-chmod +x "$FILE"
+ln -s ~/shared/mount-usb.sh ~/.mount-usb.ln
 
 echo "Done."
-echo "Result:"
-ls -l "$LINK"
