@@ -45,9 +45,9 @@ echo
 
 # ===== COPY usb_to_wsl.exe FILE =====
 
-if [ -f ~/.ssh/usb_to_wsl.exe ]; then
-  echo 'File usb_to_wsl.exe found in ~/.ssh.'
-  echo 'Initiating copy of file usb_to_wsl.exe from ~/.ssh to USB drive...'
+if [ -f ~/shared/usb_to_wsl.exe ]; then
+  echo 'File usb_to_wsl.exe found in ~/shared.'
+  echo 'Initiating copy of file usb_to_wsl.exe from ~/shared to USB drive...'
   echo
   echo 'The USB drive has been mounted at /mnt/usb.'
   sudo mount $PART $MOUNT_POINT
